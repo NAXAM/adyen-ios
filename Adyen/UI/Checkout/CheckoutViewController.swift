@@ -14,7 +14,7 @@ import SafariServices
 /// Providing a `delegate` is required during initialization. This object is used to request and provide data during the payment flow process.
 ///
 /// Providing a `cardScanDelegate` is optional. This object is used when integrating card scanning functionality. The Adyen SDK does not perform card scanning, but allows you to integrate your own or third-party scanning behaviour. Through this object, you can let `CheckoutViewController` know whether or not a card scan button should be shown, receive a callback when this button is tapped, and provide scan results back to the SDK through a completion block.
-public final class CheckoutViewController: UIViewController, PaymentRequestDelegate, PaymentMethodPickerViewControllerDelegate, PaymentDetailsPresenterDelegate, SFSafariViewControllerDelegate {
+@objcMembers public final class CheckoutViewController: UIViewController, PaymentRequestDelegate, PaymentMethodPickerViewControllerDelegate, PaymentDetailsPresenterDelegate, SFSafariViewControllerDelegate {
     
     // MARK: - Initializing
     
@@ -33,6 +33,22 @@ public final class CheckoutViewController: UIViewController, PaymentRequestDeleg
         modalPresentationStyle = .formSheet
     }
     
+    private var bridge: CheckoutViewControllerDelegateBridge?
+    /// Initializes the Checkout View Controller.
+    ///
+    /// - Parameters:
+    ///   - delegate: The delegate to receive the checkout view controller's events.
+    ///   - appearanceConfiguration: The configuration for customizing the checkout view controller's appearance.
+    @objc public init(delegate: CheckoutViewControllerDelegateBridgeDelegate, appearanceConfiguration: AppearanceConfiguration = AppearanceConfiguration.default) {
+        self.bridge = CheckoutViewControllerDelegateBridge(delegate: delegate)
+        self.delegate = self.bridge
+        
+        super.init(nibName: nil, bundle: nil)
+        
+        AppearanceConfiguration.shared = appearanceConfiguration
+        
+        modalPresentationStyle = .formSheet
+    }
     /// :nodoc:
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -44,7 +60,7 @@ public final class CheckoutViewController: UIViewController, PaymentRequestDeleg
     internal(set) public weak var delegate: CheckoutViewControllerDelegate?
     
     /// The delegate for card scanning functionality for card payments.
-    public weak var cardScanDelegate: CheckoutViewControllerCardScanDelegate?
+    @objc public weak var cardScanDelegate: CheckoutViewControllerCardScanDelegate?
     
     // MARK: - UIViewController
     
@@ -232,7 +248,7 @@ public final class CheckoutViewController: UIViewController, PaymentRequestDeleg
     
     /// :nodoc:
     func paymentMethodPickerViewController(_ paymentMethodPickerViewController: PaymentMethodPickerViewController, didSelectDeletePaymentMethod paymentMethod: PaymentMethod) {
-        paymentRequest.deletePreferred(paymentMethod: paymentMethod) { _, _ in
+        paymentRequest.deletePreferred(paymentMethod: paymentMethod) { (_: Bool, _: Error?) in
             
         }
     }

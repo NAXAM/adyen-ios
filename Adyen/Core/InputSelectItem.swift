@@ -7,7 +7,7 @@
 import Foundation
 
 /// An object representing a selectable item used in `InputDetail` with `select` type.
-public final class InputSelectItem {
+@objc public final class InputSelectItem: NSObject {
     
     // MARK: - Initializing
     
@@ -42,13 +42,13 @@ public final class InputSelectItem {
     // MARK: - Accessing Identifying Info
     
     /// Identifier of an item. Upon selection, the value of this property should be assigned to the `value` property of the `InputDetail` object.
-    public let identifier: String
+    @objc public let identifier: String
     
     // MARK: - Accessing Display Info
     
     /// Display name of an item.
-    public let name: String
+    @objc public let name: String
     
     /// Optional URL for the icon of an item.
-    public let imageURL: URL?
+    @objc public let imageURL: URL?
 }

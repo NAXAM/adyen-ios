@@ -7,7 +7,7 @@
 import Foundation
 
 /// An object that represents a payment that has been completed by the user. The result of the payment can be retrieved via the `status` property.
-public final class Payment {
+@objc public final class Payment : NSObject {
     
     // MARK: - Initializing
     
@@ -28,29 +28,36 @@ public final class Payment {
     /// The status of the payment.
     public let status: PaymentStatus
     
+    
+    @objc public var paymentStatus: String {
+        get {
+            return status.rawValue
+        }
+    }
+    
     // MARK: - Accessing the Info Used to Complete Payment
     
     /// The method that was used to complete the payment.
-    public let method: PaymentMethod
+    @objc public let method: PaymentMethod
     
     /// The payload as returned from the server.
-    public let payload: String
+    @objc public let payload: String
     
     /// The amount of the payment, in minor units.
-    public let amount: Int
+    @objc public let amount: Int
     
     /// The code of the currency for the payment amount.
-    public let currencyCode: String
+    @objc public let currencyCode: String
     
     /// The reference of the merchant.
-    public let merchantReference: String
+    @objc public let merchantReference: String
     
     /// The reference of the shopper.
-    public let shopperReference: String?
+    @objc public let shopperReference: String?
     
     /// The country code of the shopper.
-    public let shopperCountryCode: String
+    @objc public let shopperCountryCode: String
     
     /// The locale identifier of the shopper.
-    public let shopperLocaleIdentifier: String?
+    @objc public let shopperLocaleIdentifier: String?
 }

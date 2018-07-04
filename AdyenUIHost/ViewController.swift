@@ -7,8 +7,7 @@
 import UIKit
 import Adyen
 
-class ViewController: UITableViewController, CheckoutViewControllerDelegate, CheckoutViewControllerCardScanDelegate {
-    
+class ViewController: UITableViewController, CheckoutViewControllerDelegateBridgeDelegate, CheckoutViewControllerCardScanDelegate {
     // MARK: - UIViewController
     
     override func viewDidLoad() {
@@ -69,9 +68,9 @@ class ViewController: UITableViewController, CheckoutViewControllerDelegate, Che
     
     func checkoutViewController(_ controller: CheckoutViewController, requiresPaymentDataForToken token: String, completion: @escaping DataCompletion) {
         let url = URL(string: "https://checkoutshopper-test.adyen.com/checkoutshopper/demoserver/setup")!
-        
+
         let value = Int(amountField.text!)!
-        
+
         var paymentDetails: [String: Any] = [
             "amount": [
                 "currency": currencyField.text!,
@@ -93,7 +92,7 @@ class ViewController: UITableViewController, CheckoutViewControllerDelegate, Che
                 "homepage": "http://www.google.com"
             ]
         ]
-        
+
         // Mock line item values
         let lineItem1AmountIncludingTax = value / 2
         let lineItem1TaxAmount = lineItem1AmountIncludingTax / 4
@@ -101,7 +100,7 @@ class ViewController: UITableViewController, CheckoutViewControllerDelegate, Che
         let lineItem2AmountIncludingTax = value - lineItem1AmountIncludingTax
         let lineItem2TaxAmount = lineItem2AmountIncludingTax / 4
         let lineItem2AmountExcludingTax = lineItem2AmountIncludingTax - lineItem2TaxAmount
-        
+
         if lineItem1AmountExcludingTax > 0 && lineItem2AmountExcludingTax > 0 {
             paymentDetails["lineItems"] = [
                 [
@@ -126,7 +125,7 @@ class ViewController: UITableViewController, CheckoutViewControllerDelegate, Che
                 ]
             ]
         }
-        
+
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.httpBody = try? JSONSerialization.data(withJSONObject: paymentDetails, options: [])
@@ -134,7 +133,7 @@ class ViewController: UITableViewController, CheckoutViewControllerDelegate, Che
             "Content-Type": "application/json",
             "x-demo-server-api-key": Configuration.appSecretKey
         ]
-        
+
         let session = URLSession(configuration: .default)
         session.dataTask(with: request) { data, response, error in
             if let data = data {
@@ -147,20 +146,15 @@ class ViewController: UITableViewController, CheckoutViewControllerDelegate, Che
         urlCompletion = completion
     }
     
-    func checkoutViewController(_ controller: CheckoutViewController, didFinishWith result: PaymentRequestResult) {
+//    func checkoutViewController(_ controller: CheckoutViewController, didFinishWith result: PaymentRequestResult) {
+    func checkoutViewController(_ controller: CheckoutViewController, didFinishWith result: Payment?, error: NSError?) {
         var isSuccess = false
         var isCancelled = false
         
-        switch result {
-        case let .payment(payment):
+        if let payment = result {
             isSuccess = (payment.status == .received || payment.status == .authorised)
-        case let .error(error):
-            switch error {
-            case .cancelled:
-                isCancelled = true
-            default:
-                break
-            }
+        } else if let error = error {
+            isCancelled = true
         }
         
         dismiss(animated: true) {

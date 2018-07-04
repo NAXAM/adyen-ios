@@ -13,7 +13,7 @@ public typealias CardScanCompletion = ((number: String?, expiryDate: String?, cv
 public typealias PaymentDetailsCompletion = (PaymentDetails) -> Void
 
 /// The starting point for [Custom Integration](https://docs.adyen.com/developers/payments/accepting-payments/in-app-integration).
-public final class PaymentRequest {
+@objcMembers public final class PaymentRequest: NSObject {
     
     // MARK: - Initializing
     
@@ -24,6 +24,17 @@ public final class PaymentRequest {
      */
     public init(delegate: PaymentRequestDelegate) {
         self.delegate = delegate
+    }
+    
+    private var bridge: PaymentRequestDelegateBridge?
+    /**
+     Creates a `PaymentRequest` object and initialises it with a provided delegate.
+     - parameter delegate: An object that implements `PaymentRequestDelegate`.
+     - returns: An initialised instance of the payment request.
+     */
+     @objc public init(delegate: PaymentRequestDelegateBridgeDelegate) {
+        self.bridge = PaymentRequestDelegateBridge(delegate: delegate)
+        self.delegate = self.bridge
     }
     
     // MARK: - Accessing Delegate
@@ -66,7 +77,7 @@ public final class PaymentRequest {
     internal var token = PaymentRequestToken()
     
     /// Starts the payment request.
-    public func start() {
+    @objc public func start() {
         requestPaymentData(forToken: token.encoded)
     }
     
@@ -100,8 +111,20 @@ public final class PaymentRequest {
         }
     }
     
+    /// Permanently deletes payment method from shopper's preferred payment options.
+    @objc public func deletePreferred(paymentMethod: PaymentMethod, completion: @escaping (Bool, NSError?) -> Void) {
+        self.deletePreferred(paymentMethod: paymentMethod) { (result: Bool, error: Error?) in
+            if (error != nil) {
+                completion(false, NSError(domain: error!.errorDescription!, code: 0, userInfo: nil))
+                return
+            }
+            
+            completion(result, nil)
+        }
+    }
+    
     /// Cancels the payment request.
-    public func cancel() {
+    @objc public func cancel() {
         finish(with: .error(.cancelled))
     }
     
@@ -313,3 +336,10 @@ public final class PaymentRequest {
         }
     }
 }
+
+
+
+
+
+
+

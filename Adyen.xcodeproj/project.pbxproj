@@ -6,7 +6,23 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		230F6AED20EB67D900C46F76 /* fat-frameworks */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 230F6AF020EB67D900C46F76 /* Build configuration list for PBXAggregateTarget "fat-frameworks" */;
+			buildPhases = (
+				230F6AF120EB67E300C46F76 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = "fat-frameworks";
+			productName = "fat-frameworks";
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
+		230F6AF320EB75C100C46F76 /* PaymentRequestDelegateBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230F6AF220EB75C100C46F76 /* PaymentRequestDelegateBridge.swift */; };
+		230F6AF520EB75EF00C46F76 /* CheckoutViewControllerDelegateBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230F6AF420EB75EF00C46F76 /* CheckoutViewControllerDelegateBridge.swift */; };
 		53C0FEFC4B5CD9400E89E4CA /* Pods_AdyenTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3BE1722DC859E029DDBCF09 /* Pods_AdyenTests.framework */; };
 		7C62EBEC1F3C793700C9D67E /* PaymentMethodExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62EBEB1F3C793700C9D67E /* PaymentMethodExtensions.swift */; };
 		7D7AD12FB4E950056731EEB6 /* Pods_Adyen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7AEC312DF920BCC1C4BC1C0 /* Pods_Adyen.framework */; };
@@ -177,6 +193,8 @@
 
 /* Begin PBXFileReference section */
 		20191199750F47C401152B90 /* Pods-Adyen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Adyen.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Adyen/Pods-Adyen.debug.xcconfig"; sourceTree = "<group>"; };
+		230F6AF220EB75C100C46F76 /* PaymentRequestDelegateBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentRequestDelegateBridge.swift; sourceTree = "<group>"; };
+		230F6AF420EB75EF00C46F76 /* CheckoutViewControllerDelegateBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewControllerDelegateBridge.swift; sourceTree = "<group>"; };
 		36FCC0F6EB491A052CC61D81 /* Pods_AdyenUIHost.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdyenUIHost.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		39B692648B2F9A2E64860876 /* Pods-Adyen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Adyen.release.xcconfig"; path = "Pods/Target Support Files/Pods-Adyen/Pods-Adyen.release.xcconfig"; sourceTree = "<group>"; };
 		4D2C0B04986E87ADFBF3FD11 /* Pods-AdyenUIHost.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdyenUIHost.release.xcconfig"; path = "Pods/Target Support Files/Pods-AdyenUIHost/Pods-AdyenUIHost.release.xcconfig"; sourceTree = "<group>"; };
@@ -445,6 +463,7 @@
 				E275BB2F1FC2C54D00C7719E /* PaymentRequestToken.swift */,
 				E20AD03D1EFAB0E00065B70E /* PaymentServer.swift */,
 				E20AD0451EFAB0E00065B70E /* Version.swift */,
+				230F6AF220EB75C100C46F76 /* PaymentRequestDelegateBridge.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -675,6 +694,7 @@
 			children = (
 				E27DA5351F28D0DA008487D5 /* CheckoutViewController.swift */,
 				E27DA5361F28D0DA008487D5 /* CheckoutViewControllerDelegate.swift */,
+				230F6AF420EB75EF00C46F76 /* CheckoutViewControllerDelegateBridge.swift */,
 			);
 			path = Checkout;
 			sourceTree = "<group>";
@@ -884,6 +904,7 @@
 				E20AD0061EFAB0310065B70E /* Headers */,
 				E20AD0071EFAB0310065B70E /* Resources */,
 				E226F1431EFCF50A009E04C9 /* SwiftLint */,
+				B5C878E602486CF9BB141CF4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -903,6 +924,7 @@
 				E20AD00F1EFAB0310065B70E /* Frameworks */,
 				E20AD0101EFAB0310065B70E /* Resources */,
 				B2D23B80357D0CC2DABA91CB /* [CP] Embed Pods Frameworks */,
+				EFEBDFF492CBD232726A0D74 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -942,6 +964,7 @@
 				E2E9D0191F0389C80056E0AC /* Resources */,
 				2DC1652936EDFD1499FBF286 /* [CP] Embed Pods Frameworks */,
 				E250E1431F0E606000BFFF2F /* Embed Frameworks */,
+				0FED307DB1E2FA57652FB2C2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -963,6 +986,11 @@
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = Adyen;
 				TargetAttributes = {
+					230F6AED20EB67D900C46F76 = {
+						CreatedOnToolsVersion = 9.4.1;
+						DevelopmentTeam = 6KRGLYTFWP;
+						ProvisioningStyle = Automatic;
+					};
 					E20AD0081EFAB0310065B70E = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = B2NYSS5932;
@@ -982,9 +1010,9 @@
 					};
 					E2E9D01A1F0389C80056E0AC = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = B2NYSS5932;
+						DevelopmentTeam = 6KRGLYTFWP;
 						LastSwiftMigration = 0900;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -1011,6 +1039,7 @@
 				E20AD0111EFAB0310065B70E /* AdyenTests */,
 				E2BF6CC01F03952C0065E574 /* AdyenUITests */,
 				E2E9D01A1F0389C80056E0AC /* AdyenUIHost */,
+				230F6AED20EB67D900C46F76 /* fat-frameworks */,
 			);
 		};
 /* End PBXProject section */
@@ -1063,6 +1092,34 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0FED307DB1E2FA57652FB2C2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AdyenUIHost/Pods-AdyenUIHost-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		230F6AF120EB67E300C46F76 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "######################\n# Options\n######################\n\nREVEAL_ARCHIVE_IN_FINDER=true\n\n# PROJECT_NAME=\"Pods\"\n# BUILD_DIR=\"./build\"\n# PROJECT_DIR=\"./\"\nUNIVERSAL_LIBRARY_DIR=\"${BUILD_DIR}/iphoneuniversal\"\nOUTPUT_DIR=\"${PROJECT_DIR}/Output/iphoneuniversal/\"\nCONFIGURATION=Release\n\nrm -rf \"$OUTPUT_DIR\"\nmkdir -p \"$OUTPUT_DIR\"\n\n######################\n# Create directory for universal\n######################\n\nrm -rf \"${UNIVERSAL_LIBRARY_DIR}\"\nmkdir -p \"${UNIVERSAL_LIBRARY_DIR}\"\n\n######################\n# Build Frameworks\n######################\n\nfunction build() {\n    xcodebuild -workspace ${PROJECT_NAME}.xcworkspace -scheme $1 -sdk iphonesimulator -configuration ${CONFIGURATION} clean build CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-iphonesimulator 2>&1\n    xcodebuild -workspace ${PROJECT_NAME}.xcworkspace -scheme $1 -sdk iphoneos -configuration ${CONFIGURATION} clean build CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-iphoneos 2>&1\n    \n    FRAMEWORK_NAME=\"$1\"\n    SIMULATOR_LIBRARY_PATH=\"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${FRAMEWORK_NAME}.framework\"\n    DEVICE_LIBRARY_PATH=\"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${FRAMEWORK_NAME}.framework\"\n    FRAMEWORK=\"${UNIVERSAL_LIBRARY_DIR}/${FRAMEWORK_NAME}.framework\"\n    \n    mkdir \"${FRAMEWORK}\"\n    \n    ######################\n    # Copy files Framework\n    ######################\n    \n    cp -r \"${DEVICE_LIBRARY_PATH}/.\" \"${FRAMEWORK}\"\n    \n    \n    ######################\n    # Make an universal binary\n    ######################\n    \n    lipo \"${SIMULATOR_LIBRARY_PATH}/${FRAMEWORK_NAME}\" \"${DEVICE_LIBRARY_PATH}/${FRAMEWORK_NAME}\" -create -output \"${FRAMEWORK}/${FRAMEWORK_NAME}\" | echo\n    \n    # For Swift framework, Swiftmodule needs to be copied in the universal framework\n    if [ -d \"${SIMULATOR_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" ]; then\n    cp -f ${SIMULATOR_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule/* \"${FRAMEWORK}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" | echo\n                                                                          fi\n                                                                          \n                                                                          if [ -d \"${DEVICE_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" ]; then\n                                                                          cp -f ${DEVICE_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule/* \"${FRAMEWORK}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" | echo\n                                                                          fi\n                                                                          \n                                                                          ######################\n                                                                          # On Release, copy the result to release directory\n                                                                          ######################\n                                                                          \n                                                                          cp -r \"${FRAMEWORK}\" \"$OUTPUT_DIR\"\n                                                                          }\n                                                                          \n                                                                          frameworks=(Adyen)\n                                                                          for framework in \"${frameworks[@]}\"\n                                                                          do\n                                                                          build $framework\n                                                                          done\n                                                                          \n                                                                          if [ ${REVEAL_ARCHIVE_IN_FINDER} = true ]; then\n                                                                          open \"${OUTPUT_DIR}/\"\n                                                                          fi";
+		};
 		2DC1652936EDFD1499FBF286 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1135,6 +1192,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AdyenTests/Pods-AdyenTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B5C878E602486CF9BB141CF4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Adyen/Pods-Adyen-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E226F1431EFCF50A009E04C9 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1148,6 +1220,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
+		};
+		EFEBDFF492CBD232726A0D74 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AdyenTests/Pods-AdyenTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		FE27A79BD5717B7A94254E4D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1211,6 +1298,7 @@
 				E20AD06D1EFAB0E00065B70E /* InputType.swift in Sources */,
 				E250383D1F17620A00DCFD38 /* CardOneClickDetailsPresenter.swift in Sources */,
 				E27DA5861F28D4BE008487D5 /* FormTextField.swift in Sources */,
+				230F6AF320EB75C100C46F76 /* PaymentRequestDelegateBridge.swift in Sources */,
 				E20AD0841EFAB0E00065B70E /* PaymentRequestDelegate.swift in Sources */,
 				E20AD07A1EFAB0E00065B70E /* PaymentSetup.swift in Sources */,
 				E235094F1F99EDAE00EBB802 /* UIButtonExtensions.swift in Sources */,
@@ -1237,6 +1325,7 @@
 				E27DA54D1F28D0DA008487D5 /* PaymentMethodPickerViewController.swift in Sources */,
 				E25038221F1759C400DCFD38 /* SEPADirectDebitPlugin.swift in Sources */,
 				E27DA5881F28D4BE008487D5 /* FormViewController.swift in Sources */,
+				230F6AF520EB75EF00C46F76 /* CheckoutViewControllerDelegateBridge.swift in Sources */,
 				E25038381F1761BD00DCFD38 /* CardPlugin.swift in Sources */,
 				E29C11471F1CA288005F321C /* PluginManager.swift in Sources */,
 				E27DA5721F28D48C008487D5 /* LoadingTableViewCell.swift in Sources */,
@@ -1342,6 +1431,24 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		230F6AEE20EB67D900C46F76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6KRGLYTFWP;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		230F6AEF20EB67D900C46F76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6KRGLYTFWP;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		E20AD01B1EFAB0310065B70E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1554,13 +1661,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B2NYSS5932;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 6KRGLYTFWP;
 				INFOPLIST_FILE = AdyenUIHost/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.adyen.AdyenUIHost;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adyen.AdyenUIHost1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "8bb3f4db-49d2-4281-af0c-588484ff1a87";
+				PROVISIONING_PROFILE_SPECIFIER = any_dev;
 				SECRET_KEY = "";
 				SWIFT_VERSION = 4.0;
 			};
@@ -1573,11 +1681,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B2NYSS5932;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = AdyenUIHost/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.adyen.AdyenUIHost;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adyen.AdyenUIHost1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SECRET_KEY = "";
@@ -1588,6 +1696,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		230F6AF020EB67D900C46F76 /* Build configuration list for PBXAggregateTarget "fat-frameworks" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				230F6AEE20EB67D900C46F76 /* Debug */,
+				230F6AEF20EB67D900C46F76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E20AD0031EFAB0310065B70E /* Build configuration list for PBXProject "Adyen" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -7,7 +7,7 @@
 import UIKit
 
 /// An object representing a payment method used to complete a payment.
-public final class PaymentMethod: Equatable {
+@objc public final class PaymentMethod: NSObject {
     
     // MARK: - Initializing
     
@@ -78,31 +78,31 @@ public final class PaymentMethod: Equatable {
     // MARK: - Accessing Payment Method Information
     
     /// The name of the payment method.
-    public let name: String
+    @objc public let name: String
     
     /// The payment method type.
-    public let type: String
+    @objc public let type: String
     
     /// A URL to the logo of the payment method.
-    public let logoURL: URL?
+    @objc public let logoURL: URL?
     
     // MARK: - Handling Grouped Payment Methods
     
     /// Members of the payment method (only applicable when the receiver is a group).
-    public let members: [PaymentMethod]?
+    @objc public let members: [PaymentMethod]?
     
     // MARK: - Handling Pre-Stored Information
     
     /// A Boolean value indicating whether the payment method is a one-click payment method, which means that it can be easily completed by the user.
-    public let isOneClick: Bool
+    @objc public let isOneClick: Bool
     
     /// The information that was stored for this payment payment method, or `nil` if this is not a one-click payment method.
-    public let oneClickInfo: OneClickInfo?
+    @objc public let oneClickInfo: OneClickInfo?
     
     // MARK: - Managing Required Details
     
     /// The input details that should be filled in to complete the payment.
-    public let inputDetails: [InputDetail]?
+    @objc public let inputDetails: [InputDetail]?
     
     // MARK: - Internal
     

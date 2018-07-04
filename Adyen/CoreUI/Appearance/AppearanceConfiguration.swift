@@ -8,30 +8,30 @@ import Foundation
 
 /// An object used to customize the appearance of the UI components provided by this SDK.
 /// Note that `AppearanceConfiguration` is only used when the `CheckoutViewController` is first initialized. Changes to this object after it has been created are ignored.
-public final class AppearanceConfiguration {
+@objc public final class AppearanceConfiguration : NSObject {
     
     // MARK: - Initializing
     
     /// Initializes the appearance configuration.
-    public init() {
+    public override init() {
         
     }
     
     // MARK: - Configuring the Status Bar
     
     /// The preferred status bar style.
-    public var preferredStatusBarStyle = UIStatusBarStyle.default
+    @objc public var preferredStatusBarStyle = UIStatusBarStyle.default
     
     // MARK: - Configuring the Navigation Bar Title Text Appearance
     
     /// The attributes used for the navigation bar's title.
-    public var navigationBarTitleTextAttributes: [NSAttributedStringKey: Any]?
+    @objc public var navigationBarTitleTextAttributes: [NSAttributedStringKey: Any]?
     
     /// The attributes used for the navigation bar's large title. Only has an effect on iOS 11 and higher.
-    public var navigationBarLargeTitleTextAttributes: [NSAttributedStringKey: Any]?
+    @objc public var navigationBarLargeTitleTextAttributes: [NSAttributedStringKey: Any]?
     
     /// Display modes for the large title in a navigation bar.
-    public enum NavigationBarLargeTitleDisplayMode {
+    @objc public enum NavigationBarLargeTitleDisplayMode : Int {
         
         /// Always display a large title.
         case always
@@ -44,53 +44,53 @@ public final class AppearanceConfiguration {
     }
     
     /// The display mode for the large title in the navigation bar. Only has an effect on iOS 11 and higher.
-    public var navigationBarLargeTitleDisplayMode = NavigationBarLargeTitleDisplayMode.root
+    @objc public var navigationBarLargeTitleDisplayMode = NavigationBarLargeTitleDisplayMode.root
     
     // MARK: - Configuring the Navigation Bar Appearance
     
     /// The navigation bar's tint color.
-    public var navigationBarTintColor: UIColor?
+    @objc public var navigationBarTintColor: UIColor?
     
     /// The navigation bar's background color.
-    public var navigationBarBackgroundColor: UIColor?
+    @objc public var navigationBarBackgroundColor: UIColor?
     
     /// A Boolean value indicating whether the navigation bar is translucent.
-    public var isNavigationBarTranslucent = true
+    @objc public var isNavigationBarTranslucent = true
     
     /// The image of the cancel button in the navigation bar, or `nil` if a title should be used instead.
-    public var navigationBarCancelButtonImage: UIImage?
+    @objc public var navigationBarCancelButtonImage: UIImage?
     
     // MARK: - Configuring the Checkout Button
     
     /// The class to use for the checkout button.
     /// The button's title and enabled/disabled state will be managed by Adyen SDK.
     /// When no type is specified, a default button is used.
-    public var checkoutButtonType: UIButton.Type = UIButton.self
+    @objc public var checkoutButtonType: UIButton.Type = UIButton.self
     
     /// The title of the checkout button.
     /// If none provided, the amount in the format "Pay $x.xx" will be used.
-    public var checkoutButtonTitle: String?
+    @objc public var checkoutButtonTitle: String?
     
     // MARK: - Configuring Safari View Controller
     
     /// The color to tint the background of the Safari View Controller navigation bar and toolbar. Only has an effect on iOS 11 and higher.
-    public var safariBarTintColor: UIColor?
+    @objc public var safariBarTintColor: UIColor?
     
     /// The color to tint the the control buttons on Safari View Controller the navigation bar and the toolbar. Only has an effect on iOS 11 and higher.
-    public var safariControlTintColor: UIColor?
+    @objc public var safariControlTintColor: UIColor?
     
     // MARK: - Configuring General Display Properties
     
     /// The tint color for most buttons and actionable elements.
-    public var tintColor: UIColor?
+    @objc public var tintColor: UIColor?
     
     /// The background color of all view controllers.
-    public var backgroundColor: UIColor = #colorLiteral(red: 0.9764705882, green: 0.9764705882, blue: 0.9764705882, alpha: 1)
+    @objc public var backgroundColor: UIColor = #colorLiteral(red: 0.9764705882, green: 0.9764705882, blue: 0.9764705882, alpha: 1)
     
     // MARK: - Getting the Default Appearance Configuration
     
     /// Returns an instance of the default appearance configuration.
-    public static var `default`: AppearanceConfiguration {
+    @objc public static var `default`: AppearanceConfiguration {
         let appearanceConfiguration = AppearanceConfiguration()
         appearanceConfiguration.navigationBarTitleTextAttributes = [
             .foregroundColor: UIColor.checkoutDarkGray
