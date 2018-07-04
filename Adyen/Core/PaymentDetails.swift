@@ -5,23 +5,23 @@
 //
 
 /// An object that holds the list of `InputDetail` items required for to process a transaction.
-public class PaymentDetails {
+@objc public class PaymentDetails : NSObject {
     
     // MARK: - Initializing
     
-    init(details: [InputDetail]) {
+    @objc init(details: [InputDetail]) {
         list = details
     }
     
     // MARK: - Accessing Details List
     
     /// List of `InputDetail`.
-    public var list: [InputDetail] = []
+    @objc public var list: [InputDetail] = []
     
     // MARK: - Updating Input Details
     
     /// Update the detail defined by a given `key` with the string `value` provided.
-    public func setDetail(value: String, forKey key: String) {
+    @objc public func setDetail(value: String, forKey key: String) {
         list[key]?.stringValue = value
     }
     
@@ -61,7 +61,7 @@ public extension PaymentDetails {
     // MARK: - Updating Apple Pay Details
     
     /// Fills details for the Apple Pay transaction.
-    public func fillApplePay(token: String) {
+    @objc public func fillApplePay(token: String) {
         setDetail(value: token, forKey: PaymentDetails.appleTokenKey)
     }
 }
@@ -83,12 +83,12 @@ public extension PaymentDetails {
     }
     
     /// Fills details for the card transaction with CVC.
-    public func fillCard(cvc: String) {
+    @objc public func fillCard(cvc: String) {
         setDetail(value: cvc, forKey: PaymentDetails.cardCvcKey)
     }
     
     /// Fills installments selection for the card transaction.
-    public func fillCard(installmentPlanIdentifier: String) {
+    @objc public func fillCard(installmentPlanIdentifier: String) {
         setDetail(value: installmentPlanIdentifier, forKey: PaymentDetails.cardInstallmentsKey)
     }
 }
@@ -101,7 +101,7 @@ public extension PaymentDetails {
     // MARK: - Updating iDEAL Details
     
     /// Fills details for the iDEAL transaction.
-    public func fillIdeal(issuerIdentifier: String) {
+    @objc public func fillIdeal(issuerIdentifier: String) {
         setDetail(value: issuerIdentifier, forKey: PaymentDetails.issuerKey)
     }
 }
@@ -115,7 +115,7 @@ public extension PaymentDetails {
     // MARK: - Updating SEPA Direct Debit Details
     
     /// Fill details for the SEPA transaction.
-    public func fillSepa(name: String, iban: String) {
+    @objc public func fillSepa(name: String, iban: String) {
         setDetail(value: name, forKey: PaymentDetails.nameKey)
         setDetail(value: iban, forKey: PaymentDetails.ibanKey)
     }

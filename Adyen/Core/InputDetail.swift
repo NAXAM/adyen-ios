@@ -9,7 +9,7 @@
  The detail has a `type` (`InputType`). If `type` is `.select`, selection should be made from list of `InputSelectItem`.
  The detail value can be set as a string (`stringValue`) or a bool value (`boolValue`).
 */
-public class InputDetail {
+@objc public class InputDetail: NSObject {
     
     // MARK: - Initializing
     
@@ -75,18 +75,24 @@ public class InputDetail {
     /// The detail type. See `InputType`.
     public let type: InputType
     
+    @objc public var inputType: String {
+        get {
+            return self.type.rawValue
+        }
+    }
+    
     /// Whether or not the detail is optional.
-    public let optional: Bool
+    @objc public let optional: Bool
     
     // MARK: - Accessing List of Selectable Items
     
     /// An array of `InputSelectItem`. Only be available if `type` is `.select`.
-    public let items: [InputSelectItem]?
+    @objc public let items: [InputSelectItem]?
     
     // MARK: - Accessing Nested Details
     
     /// An array of input details nested in the receiver.
-    public let inputDetails: [InputDetail]?
+    @objc public let inputDetails: [InputDetail]?
     
     // MARK: - Managing Input Values
     

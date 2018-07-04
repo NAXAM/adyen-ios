@@ -7,26 +7,38 @@
 import Foundation
 
 /// Instances conforming to this protocol provide access to the information that was stored for a payment method.
-public protocol OneClickInfo {
+@objc public protocol OneClickInfo {
     
 }
 
 /// Object that contains stored card info used to perform previous card payments.
-public struct CardOneClickInfo: OneClickInfo {
+@objc public class CardOneClickInfo: NSObject, OneClickInfo {
+    
+    public init(
+        number: String,
+        holderName: String,
+        expiryMonth: Int,
+        expiryYear: Int
+        ){
+        self.number = number
+        self.holderName = holderName
+        self.expiryMonth = expiryMonth
+        self.expiryYear = expiryYear
+    }
     
     // MARK: - Accessing Stored Info
     
     /// A shortened version of the card's number.
-    public let number: String
+    @objc public let number: String
     
     /// The card's holder name.
-    public let holderName: String
+    @objc public let holderName: String
     
     /// The card's expiry month.
-    public let expiryMonth: Int
+    @objc public let expiryMonth: Int
     
     /// The card's expiry year.
-    public let expiryYear: Int
+    @objc public let expiryYear: Int
     
     internal init?(dictionary: [String: Any]) {
         guard
@@ -49,11 +61,14 @@ public struct CardOneClickInfo: OneClickInfo {
 }
 
 /// Object that contains stored info used to perform previous PayPal payments.
-public struct PayPalOneClickInfo: OneClickInfo {
+@objc public class PayPalOneClickInfo: NSObject, OneClickInfo {
+    public init(emailAddress: String) {
+        self.emailAddress = emailAddress
+    }
     
     // MARK: - Accessing Stored Info
     
     /// The email address of the PayPal account.
-    public let emailAddress: String
+    @objc public let emailAddress: String
     
 }

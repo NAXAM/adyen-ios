@@ -34,7 +34,7 @@ public protocol CheckoutViewControllerDelegate: class {
 /// The `CheckoutViewControllerCardScanDelegate` protocol defines methods that the `cardScanDelegate` of `CheckoutViewController` should implement to enable card scanning functionality for card payment methods.
 ///
 /// The Adyen SDK does not provide card scanning functionality, but allows you to connect your own or third-party card scanning flows by conforming to this protocol. By providing a `cardScanDelegate` object that conforms to `CheckoutViewControllerCardScanDelegate`, you will be able to specify whether or not a card scan button should be shown, receive a callback when this button is tapped, and provide scan results back to the SDK through a completion block.
-public protocol CheckoutViewControllerCardScanDelegate: class {
+@objc public protocol CheckoutViewControllerCardScanDelegate {
     
     // MARK: - Managing Scan Button Visibility
     
