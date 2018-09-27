@@ -22,7 +22,7 @@
 	<array>
 		<dict>
 			<key>CFBundleURLName</key>
-			<string>com.adyen.AdyenUIHost</string>
+			<string>net.naxam.adyenqs</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>ui-host</string>

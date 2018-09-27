@@ -8,7 +8,7 @@ import Foundation
 
 // Fill in your app identifier and secret key here.
 struct Configuration {
-    static var appSecretKey = ""
+    static var appSecretKey = "0101388667EE5CD5932B441CFA248493772CA2EB8E5CAC5F02865A157153D56CE6AA67588AC27905D2492DADF0CB2570C9E373FD29B78FE758EA9E10C15D5B0DBEE47CDCB5588C48224C6007"
     
     static var isFilledIn: Bool {
         return appSecretKey.isEmpty == false
